@@ -3,9 +3,13 @@
 
 :root {
   --primary: #d8b979;
+  --black: #000;
+  --text-color: #333;
 }
 
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -15,7 +19,19 @@ html {
 
 body {
   font-family: 'Bellota', cursive;
+  font-weight: bold;
   font-size: 1.6rem;
   line-height: 1.5;
   text-rendering: optimizeSpeed;
+  color: var(--text-color);
+}
+
+button, input, [tabindex] {
+  font-family: 'Bellota', cursive;
+  outline: none;
+  border: none;
+}
+
+a[href] {
+  color: var(--text-color);
 }
