@@ -2,10 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Bellota:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
 
 :root {
+  // Default color
   --primary: #d8b979;
   --black: #000;
   --white: #fff;
   --text-color: #333;
+
+  // Default layout
+  --default-layout-header-height: 60px;
+  --default-layout-hozirontal-spacer: 18px;
 }
 
 * {
@@ -35,4 +40,15 @@ button, input, [tabindex] {
 
 a[href] {
   color: var(--text-color);
+}
+
+body {
+  .tippy-box {
+    color: var(--black);
+    background-color: var(--primary);
+  }
+
+  .tippy-arrow {
+    color: var(--primary);
+  }
 }
