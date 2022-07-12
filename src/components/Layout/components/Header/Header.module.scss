@@ -16,6 +16,7 @@
 }
 
 .inner {
+  padding: 0 var(--default-layout-hozirontal-spacer);
   height: 100%;
   display: flex;
   align-items: center;
@@ -108,9 +109,15 @@
   color: var(--icon-color-normal);
 }
 
-.rsidebar-btn {
+.action-bar {
+  display: flex;
+  align-items: center;
+}
+
+.action-btn {
   margin-left: 10px;
   padding: 6px;
   background-color: transparent;
   font-size: 2rem;
+  cursor: pointer;
 }
