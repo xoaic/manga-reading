@@ -7,6 +7,10 @@
   --white: #fff;
   --text-color: #333;
 
+  // Default font
+  --font-family-main: "Grandstander", cursive;
+  --font-family-sub: "LeagueSpartan Regular", cursive;
+
   // Default layout
   --default-layout-header-height: 60px;
   --default-layout-hozirontal-spacer: 18px;
@@ -52,12 +56,13 @@ html {
 }
 
 body {
-  font-family: 'Grandstander', cursive;
+  font-family: var(--font-family-main);
   font-weight: 300;
   font-size: 1.6rem;
   line-height: 1.5;
   text-rendering: optimizeSpeed;
   color: var(--text-color);
+  overflow-y: overlay;
 
   .tippy-box {
     font-weight: 600;
@@ -70,17 +75,34 @@ body {
   }
 }
 
+// Scrollbar CSS
+html *::-webkit-scrollbar {
+  border-radius: 0;
+  width: 8px;
+}
+
+html *::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, .15);
+}
+
+html *::-webkit-scrollbar-track {
+  border-radius: 0;
+  background-color: rgba(0, 0, 0, 0);
+}
+
 button, input, [tabindex] {
-  font-family: 'Grandstander', cursive;
+  font-family: var(--font-family-main);
   outline: none;
   border: none;
   background-color: transparent;
 }
 
 input {
-  font-family: 'LeagueSpartan Regular', cursive;
+  font-family: var(--font-family-sub);
 }
 
-a[href] {
+a {
   color: var(--text-color);
+  text-decoration: none;
 }

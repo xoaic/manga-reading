@@ -15,6 +15,7 @@
   input {
     flex: 1;
     height: 100%;
+    padding-right: 40px;
     color: var(--black);
     font-size: 1.6rem;
     caret-color: var(--primary);
@@ -70,6 +71,22 @@
   position: absolute;
   right: calc(var(--search-button-width) + 16px);
   top: 50%;
-  transform: translateY(-50%);
   color: var(--icon-color-normal);
+}
+
+.clear-btn {
+  transform: translateY(-50%)
+}
+
+.loading {
+  animation: spinner 0.8s linear infinite;
+}
+
+@keyframes spinner {
+  from {
+    transform: translateY(-50%) rotate(0);
+  }
+  to {
+    transform: translateY(-50%) rotate(360deg);
+  }
 }

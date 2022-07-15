@@ -11,8 +11,14 @@
   --background-color-normal: rgba(22, 24, 35, 0.06);
   --background-color-hover: rgba(22, 24, 35, 0.03);
 
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
   height: 9vh;
   box-shadow: 0 1px 1px rgb(0 0 0 / 12%);
+  background-color: var(--white);
 }
 
 .inner {

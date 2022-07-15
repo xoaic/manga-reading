@@ -1,24 +1,24 @@
 import classNames from "classnames/bind"
 import Tip from '@tippyjs/react'
 import "tippy.js/dist/tippy.css"
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
-import {
-} from "@fortawesome/free-solid-svg-icons"
+import { Link } from "react-router-dom"
+import config from "../../../config"
+import { useState } from "react"
 
-import Button from "../../../Button"
 import styles from "./Header.module.scss"
-import Menu from "../../../Popper/Menu"
+import Menu from "../../../components/Popper/Menu"
 import {
-    SearchIcon,
-    SwitchIcon,
-    SidebarIcon,
+    GuestIcob,
+    LogoutIcon,
     ProfileIcon,
-    UploadIcon,
-    LogoutIcon
-} from "../../../Icon"
-import Image from "../../../Image"
-import images from "../../../../assets/images"
-import SearchBar from "../../SearchBar"
+    SearchIcon,
+    SidebarIcon,
+    SwitchIcon,
+    UploadIcon
+} from "../../../components/Icon"
+import Image from "../../../components/Image"
+import images from "../../../assets/images"
+import SearchBar from "../SearchBar"
 
 const cx = classNames.bind(styles)
 
@@ -26,11 +26,12 @@ const MENU_ITEMS = [
     {
         icon: <ProfileIcon />,
         title: "Xem hồ sơ",
-        to: "/@dophung"
+        to: config.routes.profile
     },
     {
         icon: <UploadIcon />,
-        title: "Đăng truyện"
+        title: "Đăng truyện",
+        to: config.routes.upload
     },
     {
         icon: <LogoutIcon />,
@@ -40,21 +41,11 @@ const MENU_ITEMS = [
 ]
 
 function Header() {
-    const currentUser = true
-
-    const handleMenuChange = (menuItem) => {
-        switch (menuItem.type) {
-            case "Loại hồ sơ":
-                break;
-            default:
-        }
-    }
+    const [currentUser, setCurrentUser] = useState(false)
 
     return <header className={cx("wrapper")}>
         <div className={cx("inner")}>
-            <div className={cx("logo")}>
-                <a target="_top" href="https://flamingtext.com/" ><img src={images.logo} border="0" alt="Logo Design by FlamingText.com" title="Logo Design by FlamingText.com"/></a>
-            </div>
+            <Link to={config.routes.home} className={cx("logo")}><img src={images.logo} border="0" alt="Logo"/></Link>
 
             <SearchBar />
 
@@ -71,9 +62,9 @@ function Header() {
                                 <SearchIcon />
                             </button>
                         </Tip>
-                        <Menu items={MENU_ITEMS} onChange={handleMenuChange}>
+                        <Menu items={MENU_ITEMS}>
                             <button>
-                                <Image src={"https"}
+                                <Image src={""}
                                      className={cx("user-avatar")}
                                      alt={"Phùng Thanh Độ"}
                                        fallback={images.placeholderUser50}
@@ -88,8 +79,23 @@ function Header() {
                     </>
                 ) : (
                     <>
-                        <Button outline>Đăng ký</Button>
-                        <Button primary>Đăng nhập</Button>
+                        <Tip delay={[0, 200]} content={"Sáng/tối"} placement={"bottom"}>
+                            <button className={cx("action-btn")}>
+                                <SwitchIcon />
+                            </button>
+                        </Tip>
+                        <Tip delay={[0, 200]} content={"Tìm kiếm"} placement={"bottom"}>
+                            <button className={cx("action-btn")}>
+                                <SearchIcon />
+                            </button>
+                        </Tip>
+                        <Tip delay={[0, 200]} content={"Đăng nhập"} placement={"bottom"}>
+                            <button className={cx("action-btn")} onClick={() => {
+                                setCurrentUser(true)
+                            }}>
+                                <GuestIcob />
+                            </button>
+                        </Tip>
                         <Tip delay={[0, 200]} content={"Thanh bên"} placement={"bottom"}>
                             <button className={cx("action-btn")}>
                                 <SidebarIcon />
