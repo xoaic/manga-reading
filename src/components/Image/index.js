@@ -25,7 +25,7 @@ const Image = forwardRef(({src, alt, className, fallback: fb, ...props}, ref) =>
     )
 })
 
-Image.protoTypes = {
+Image.propTypes = {
     src: PropTypes.string,
     alt: PropTypes.string,
     className: PropTypes.string,

@@ -23,7 +23,7 @@ function DefaultLayout({children}) {
     )
 }
 
-DefaultLayout.protoTypes = {
+DefaultLayout.propTypes = {
     children: PropTypes.node.isRequired
 }
 

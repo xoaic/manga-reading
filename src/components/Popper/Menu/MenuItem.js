@@ -16,7 +16,7 @@ function MenuItem({data, onClick}) {
     </Button>
 }
 
-MenuItem.protoTypes = {
+MenuItem.propTypes = {
     data: PropTypes.object.isRequired,
     onClick: PropTypes.func
 }
