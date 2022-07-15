@@ -1,5 +1,4 @@
 @import "normalize.css";
-@import url('https://fonts.googleapis.com/css2?family=Bellota:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
 
 :root {
   // Default color
@@ -23,27 +22,45 @@ html {
   font-size: 62.5%;
 }
 
+@font-face {
+  font-family: 'Grandstander';
+  src: url("../../assets/fonts/Grandstander-Light.ttf");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Grandstander';
+  src: url("../../assets/fonts/Grandstander-SemiBold.ttf");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Grandstander';
+  src: url("../../assets/fonts/Grandstander-Bold.ttf");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Grandstander';
+  src: url("../../assets/fonts/Grandstander-Black.ttf");
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: 'LeagueSpartan Regular';
+  src: url("../../assets/fonts/LeagueSpartan-Regular.ttf");
+}
+
 body {
-  font-family: 'Bellota', cursive;
-  font-weight: bold;
+  font-family: 'Grandstander', cursive;
+  font-weight: 300;
   font-size: 1.6rem;
   line-height: 1.5;
   text-rendering: optimizeSpeed;
   color: var(--text-color);
-}
 
-button, input, [tabindex] {
-  font-family: 'Bellota', cursive;
-  outline: none;
-  border: none;
-}
-
-a[href] {
-  color: var(--text-color);
-}
-
-body {
   .tippy-box {
+    font-weight: 600;
     color: var(--black);
     background-color: var(--primary);
   }
@@ -51,4 +68,19 @@ body {
   .tippy-arrow {
     color: var(--primary);
   }
+}
+
+button, input, [tabindex] {
+  font-family: 'Grandstander', cursive;
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+
+input {
+  font-family: 'LeagueSpartan Regular', cursive;
+}
+
+a[href] {
+  color: var(--text-color);
 }
