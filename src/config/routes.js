@@ -9,6 +9,6 @@ const routes = {
     upload: "/upload",
     search: "/search",
     privacy_policy: "/privacy-policy"
-}
+};
 
-export default routes
+export default routes;

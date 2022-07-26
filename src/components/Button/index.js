@@ -1,10 +1,10 @@
-import classNames from "classnames/bind"
-import PropTypes from "prop-types"
+import classNames from "classnames/bind";
+import PropTypes from "prop-types";
 
-import styles from "./Button.module.scss"
-import { Link } from "react-router-dom"
+import styles from "./Button.module.scss";
+import { Link } from "react-router-dom";
 
-const cx = classNames.bind(styles)
+const cx = classNames.bind(styles);
 
 function Button({
     to,
@@ -25,12 +25,12 @@ function Button({
     const props = {
         onClick,
         ...passProps
-    }
+    };
 
     if (disabled) Object.keys(props).forEach((key) => {
         if (key.startsWith("on") && typeof props[key] === "function")
-            delete props[key]
-        })
+            delete props[key];
+        });
 
     if (to) {
         props.to = to
@@ -49,7 +49,7 @@ function Button({
         rounded,
         disabled,
         [className]: className
-    })
+    });
 
     return (
         <Comp className={classes} {...props}>
@@ -71,6 +71,6 @@ Button.prototype = {
     className: PropTypes.string,
     icon: PropTypes.node,
     onClick: PropTypes.func
-}
+};
 
-export default Button
+export default Button;

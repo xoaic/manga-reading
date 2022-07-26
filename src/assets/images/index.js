@@ -4,4 +4,4 @@ const images = {
     placeholderUser300: require("../images/user/placeholder-image-300x300.jpg")
 }
 
-export default images
+export default images;

@@ -8,7 +8,7 @@ function HeaderOnly({ children }) {
                 {children}
             </div>
         </div>
-    )
+    );
 }
 
 export default HeaderOnly;

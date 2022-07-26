@@ -1,20 +1,20 @@
-import classNames from "classnames/bind"
-import PropTypes from "prop-types"
-import Tippy from "@tippyjs/react/headless"
+import classNames from "classnames/bind";
+import PropTypes from "prop-types";
+import Tippy from "@tippyjs/react/headless";
 
-import { Wrapper as PopperWrapper } from "../../Popper"
-import styles from "./Menu.module.scss"
-import MenuItem from "./MenuItem"
-import Header from "./Header"
-import { useState } from "react"
+import { Wrapper as PopperWrapper } from "../../Popper";
+import styles from "./Menu.module.scss";
+import MenuItem from "./MenuItem";
+import Header from "./Header";
+import { useState } from "react";
 
-const cx = classNames.bind(styles)
+const cx = classNames.bind(styles);
 
-const defaultFunc = () => {}
+const defaultFunc = () => {};
 
 function Menu({children, items = [], hideOnClick = false, onChange = defaultFunc, ...passProps}) {
-    const [history, setHistory] = useState([{data: items}])
-    const currentMenu = history[history.length - 1]
+    const [history, setHistory] = useState([{data: items}]);
+    const currentMenu = history[history.length - 1];
 
     const renderItems = () => {
         return currentMenu.data.map((item, index) => {
@@ -24,12 +24,12 @@ function Menu({children, items = [], hideOnClick = false, onChange = defaultFunc
                 else onChange(item)
             }} />
         })
-    }
+    };
 
     // Back to previous menu page
     const handleBackMenu = () => {
         setHistory(prev => prev.slice(0, prev.length - 1))
-    }
+    };
 
     const renderResult = (attrs) => (
         <div className={cx("menu-list")} tabIndex={-1} {...attrs}>
@@ -41,12 +41,12 @@ function Menu({children, items = [], hideOnClick = false, onChange = defaultFunc
                 <div className={cx("menu-body")}>{renderItems()}</div>
             </PopperWrapper>
         </div>
-    )
+    );
 
     // Reset to first menu page
     const handleResetMenu = () => {
         setHistory(prev => prev.slice(0, 1))
-    }
+    };
 
     return (
         <div>
@@ -62,7 +62,7 @@ function Menu({children, items = [], hideOnClick = false, onChange = defaultFunc
                 {children}
             </Tippy>
         </div>
-    )
+    );
 }
 
 Menu.propTypes = {
@@ -70,6 +70,6 @@ Menu.propTypes = {
     items: PropTypes.array,
     hideOnClick: PropTypes.bool,
     onChange: PropTypes.func,
-}
+};
 
-export default Menu
+export default Menu;

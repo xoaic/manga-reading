@@ -1,12 +1,12 @@
-import classNames from "classnames/bind"
-import Tip from '@tippyjs/react'
-import "tippy.js/dist/tippy.css"
-import { Link } from "react-router-dom"
-import config from "../../../config"
-import { useState } from "react"
+import classNames from "classnames/bind";
+import Tip from "@tippyjs/react";
+import "tippy.js/dist/tippy.css";
+import { Link } from "react-router-dom";
+import config from "../../../config";
+import { useState } from "react";
 
-import styles from "./Header.module.scss"
-import Menu from "../../../components/Popper/Menu"
+import styles from "./Header.module.scss";
+import Menu from "../../../components/Popper/Menu";
 import {
     GuestIcob,
     LogoutIcon,
@@ -15,12 +15,12 @@ import {
     SidebarIcon,
     SwitchIcon,
     UploadIcon
-} from "../../../components/Icon"
-import Image from "../../../components/Image"
-import images from "../../../assets/images"
-import SearchBar from "../SearchBar"
+} from "../../../components/Icon";
+import Image from "../../../components/Image";
+import images from "../../../assets/images";
+import SearchBar from "../SearchBar";
 
-const cx = classNames.bind(styles)
+const cx = classNames.bind(styles);
 
 const MENU_ITEMS = [
     {
@@ -38,10 +38,10 @@ const MENU_ITEMS = [
         title: "Đăng xuất",
         separate: true
     },
-]
+];
 
 function Header() {
-    const [currentUser, setCurrentUser] = useState(false)
+    const [currentUser, setCurrentUser] = useState(false);
 
     return <header className={cx("wrapper")}>
         <div className={cx("inner")}>

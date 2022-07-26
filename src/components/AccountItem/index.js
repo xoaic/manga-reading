@@ -1,12 +1,12 @@
-import classNames from "classnames/bind"
-import PropTypes from "prop-types"
-import { Link } from "react-router-dom"
+import classNames from "classnames/bind";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
-import styles from "./AccountItem.module.scss"
+import styles from "./AccountItem.module.scss";
 import Image from "../Image";
-import images from "../../assets/images"
+import images from "../../assets/images";
 
-const cx = classNames.bind(styles)
+const cx = classNames.bind(styles);
 
 function AccountItem({data}) {
     return (
@@ -28,6 +28,6 @@ function AccountItem({data}) {
 
 AccountItem.propTypes = {
     data: PropTypes.object.isRequired
-}
+};
 
 export default AccountItem;

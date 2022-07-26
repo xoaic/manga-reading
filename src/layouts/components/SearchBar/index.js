@@ -1,63 +1,63 @@
-import classNames from "classnames/bind"
-import Tippy from "@tippyjs/react/headless"
-import { useEffect, useState, useRef } from "react"
+import classNames from "classnames/bind";
+import Tippy from "@tippyjs/react/headless";
+import { useEffect, useState, useRef } from "react";
 
-import * as searchService from "../../../services/searchService"
-import {useDebounce} from "../../../hooks"
-import {Wrapper as PopperWrapper} from "../../../components/Popper"
-import AccountItem from "../../../components/AccountItem"
-import { ClearIcon, LoadingIcon, SearchIcon } from "../../../components/Icon"
-import styles from "./SearchBar.module.scss"
+import * as searchService from "../../../services/searchService";
+import {useDebounce} from "../../../hooks";
+import {Wrapper as PopperWrapper} from "../../../components/Popper";
+import AccountItem from "../../../components/AccountItem";
+import { ClearIcon, LoadingIcon, SearchIcon } from "../../../components/Icon";
+import styles from "./SearchBar.module.scss";
 
-const cx = classNames.bind(styles)
+const cx = classNames.bind(styles);
 
 function SearchBar() {
-    const [searchValue, setSearchValue] = useState("")
-    const [searchResult, setSearchResult] = useState([])
-    const [showResult, setShowResult] = useState(true)
-    const [loading, setLoading] = useState(false)
+    const [searchValue, setSearchValue] = useState("");
+    const [searchResult, setSearchResult] = useState([]);
+    const [showResult, setShowResult] = useState(true);
+    const [loading, setLoading] = useState(false);
 
-    const inputRef = useRef()
-    const debouncedValue = useDebounce(searchValue, 500)
+    const inputRef = useRef();
+    const debouncedValue = useDebounce(searchValue, 500);
 
     useEffect(() => {
         if (!debouncedValue.trim()) {
-            setSearchResult([])
-            return
+            setSearchResult([]);
+            return;
         }
 
-        setLoading(true)
+        setLoading(true);
 
         const fetchApi = async () => {
-            setLoading(true)
+            setLoading(true);
 
-            const result = await searchService.search(debouncedValue)
-            setSearchResult(result)
+            const result = await searchService.search(debouncedValue);
+            setSearchResult(result);
 
-            setLoading(false)
+            setLoading(false);
         }
 
-        fetchApi()
-    }, [debouncedValue])
+        fetchApi();
+    }, [debouncedValue]);
 
     const handleChangeValue = (e) => {
-        const searchValue = e.target.value
+        const searchValue = e.target.value;
         if (!searchValue.startsWith(` `)) {
             setSearchValue(searchValue)
         }
-    }
+    };
 
     const handleClearValue = () => {
-        setSearchValue("")
-        setSearchResult([])
-        inputRef.current.focus()
+        setSearchValue("");
+        setSearchResult([]);
+        inputRef.current.focus();
     }
 
-    const handleSubmit = () => {}
+    const handleSubmit = () => {};
 
     const handleHideResult = () => {
         setShowResult(false)
-    }
+    };
 
     return (
         <div>
@@ -97,7 +97,7 @@ function SearchBar() {
                 </div>
             </Tippy>
         </div>
-    )
+    );
 }
 
-export default SearchBar
+export default SearchBar;
